@@ -40,7 +40,7 @@ module.exports = defaultConfig.concat([
       filename: 'index.umd.js',
       path: path.resolve(__dirname, 'dist'),
       libraryTarget: 'umd',
-      library: 'ideContextMenu',
+      library: 'ideCodeEditor',
       umdNamedDefine: true
     }
   })
