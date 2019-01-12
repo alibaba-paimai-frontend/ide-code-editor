@@ -32,10 +32,9 @@ npm test
 
 ## 打包发布
 
-普通的 npm 发布即可：
+普通的 npm 发布即可，记得发布前需要手动打包：
 
 ```shell
-npm publish
+npm run build && npm publish
 ```
-
 
