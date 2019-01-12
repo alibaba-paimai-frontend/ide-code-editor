@@ -1,9 +1,8 @@
 import * as React from 'react';
 import { render } from 'react-dom';
-import { CodeEditor } from '../src/';
-import { MonacoEditorProps } from 'react-monaco-editor';
+import { CodeEditor, ICodeEditorProps } from '../src/';
 
-const editor: MonacoEditorProps = {
+const editor: ICodeEditorProps = {
   language: 'javascript'
 };
 

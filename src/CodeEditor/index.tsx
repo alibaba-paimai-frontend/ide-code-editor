@@ -6,7 +6,8 @@ import MonacoEditor, {
   ChangeHandler
 } from 'react-monaco-editor';
 import * as monacoEditor from 'monaco-editor/esm/vs/editor/editor.api';
-import debounce from 'lodash.debounce';
+// import debounce from 'lodash.debounce';
+import { debounce } from 'ts-debounce';
 
 import { StoresFactory, IStoresModel } from './schema/stores';
 import { AppFactory } from './controller/index';
@@ -55,8 +56,7 @@ export class CodeEditor extends Component<ICodeEditorProps> {
       },
       wait * 1000,
       {
-        leading: false,
-        trailing: true
+        isImmediate: false
       }
     );
   };
@@ -73,7 +73,7 @@ export class CodeEditor extends Component<ICodeEditorProps> {
     } = this.props;
 
     return (
-      <EditorWrap className="code-editor-wrap" visible={visible}>     
+      <EditorWrap className="code-editor-wrap" visible={visible}>
         <MonacoEditor
           width={width}
           height={height}
