@@ -5,16 +5,19 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const path = require('path');
 const { getExternal, getMonacoPlugin } = require('./webpack-helper');
-const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin');
 
 const targetDir = 'dist';
 
 const defaultConfig = common.map(config => {
   return merge(config, {
     entry: './src/index.tsx',
+    externals: getExternal(['styled-components'], false),
     output: {
-      filename: 'index.js',
-      path: path.resolve(__dirname, 'dist')
+      filename: 'index.umd.js',
+      libraryTarget: 'umd',
+      library: 'ideCodeEditor',
+      path: path.resolve(__dirname, 'dist'),
+      umdNamedDefine: true
     },
     mode: 'production',
     devtool: 'source-map',
@@ -34,13 +37,12 @@ const defaultConfig = common.map(config => {
 // 我们输出三份配置
 module.exports = defaultConfig.concat([
   merge(defaultConfig[0], {
-    entry: './src/index.tsx',
-    externals: getExternal(false, ['styled-components']),
+    externals: getExternal(['styled-components'], true),
     output: {
-      filename: 'index.umd.js',
-      path: path.resolve(__dirname, 'dist'),
+      filename: 'index.browser.js',
       libraryTarget: 'umd',
       library: 'ideCodeEditor',
+      path: path.resolve(__dirname, 'dist'),
       umdNamedDefine: true
     }
   })
