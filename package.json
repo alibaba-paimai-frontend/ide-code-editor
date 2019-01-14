@@ -1,6 +1,6 @@
 {
   "name": "ide-code-editor",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "",
   "main": "dist/index.umd.js",
   "module": "dist/index.umd.js",
@@ -17,7 +17,7 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.0.0",
     "@dump247/storybook-state": "^1.5.2",
