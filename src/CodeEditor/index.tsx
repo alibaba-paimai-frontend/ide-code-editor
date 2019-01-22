@@ -12,6 +12,7 @@ import { debounce } from 'ts-debounce';
 import { StoresFactory, IStoresModel } from './schema/stores';
 import { AppFactory } from './controller/index';
 import { debugInteract, debugRender } from '../lib/debug';
+import { convertIfNumberic } from '../lib/util';
 import { EditorWrap } from './styles';
 
 export interface ICodeEditorEvent {
@@ -75,8 +76,8 @@ export class CodeEditor extends Component<ICodeEditorProps> {
     return (
       <EditorWrap className="code-editor-wrap" visible={visible}>
         <MonacoEditor
-          width={width}
-          height={height}
+          width={convertIfNumberic(width)}
+          height={convertIfNumberic(height)}
           language={language}
           theme={theme}
           value={value}
@@ -93,10 +94,10 @@ export class CodeEditor extends Component<ICodeEditorProps> {
     以下是专门配合 store 时的组件版本
 ----------------------------------------------------- */
 
-export const onChangeWithStore = (stores: IStoresModel, onChange: ChangeHandler) => (
-  newValue: string,
-  e: monacoEditor.editor.IModelContentChangedEvent
-) => {
+export const onChangeWithStore = (
+  stores: IStoresModel,
+  onChange: ChangeHandler
+) => (newValue: string, e: monacoEditor.editor.IModelContentChangedEvent) => {
   stores.editor.setValue(newValue);
   onChange && onChange(newValue, e);
 };
