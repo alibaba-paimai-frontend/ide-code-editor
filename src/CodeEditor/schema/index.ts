@@ -78,7 +78,7 @@ export const CodeEditorModel = types
   .actions(self => {
     return {
       updateAttribute(name: string, value: any) {
-        updateEditor(self as ICodeEditorModel, name, value);
+        return updateEditor(self as ICodeEditorModel, name, value);
       },
       // 更新某一项 option
       updateOption(name: string, value: any) {

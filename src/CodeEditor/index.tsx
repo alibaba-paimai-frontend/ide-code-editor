@@ -93,7 +93,7 @@ export class CodeEditor extends Component<ICodeEditorProps> {
     以下是专门配合 store 时的组件版本
 ----------------------------------------------------- */
 
-const onChangeWithStore = (stores: IStoresModel, onChange: ChangeHandler) => (
+export const onChangeWithStore = (stores: IStoresModel, onChange: ChangeHandler) => (
   newValue: string,
   e: monacoEditor.editor.IModelContentChangedEvent
 ) => {

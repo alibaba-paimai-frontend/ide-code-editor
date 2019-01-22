@@ -4,23 +4,24 @@ import { router as GetRouter } from '../router/get';
 import { router as PostRouter } from '../router/post';
 import { router as PutRouter } from '../router/put';
 import { router as DelRouter } from '../router/del';
+import { debugIO } from '../../lib/debug';
 
+export const AppFactory = function(stores: IStoresModel) {
+  const app = new Application({ domain: 'code-editor' });
 
-export const AppFactory = function (stores: IStoresModel) {
+  // 挂载 stores 到上下文中
+  app.use((ctx: any, next) => {
+    ctx.stores = stores;
+    debugIO(`[controller] request: ${JSON.stringify(ctx.request.toJSON())}`);
+    next();
+    debugIO(`[controller] [${ctx.request.method}] ${ctx.request.url} ==> response: ${JSON.stringify(ctx.response.toJSON())}`);
+  });
 
-    const app = new Application({ domain: 'code-editor' });
+  // 注册路由
+  app.use(GetRouter.routes());
+  app.use(PostRouter.routes());
+  app.use(PutRouter.routes());
+  app.use(DelRouter.routes());
 
-    // 挂载 stores 到上下文中
-    app.use((ctx: any, next)=>{
-        ctx.stores = stores;
-        return next();
-    });
-
-    // 注册路由
-    app.use(GetRouter.routes());
-    app.use(PostRouter.routes());
-    app.use(PutRouter.routes());
-    app.use(DelRouter.routes());
-
-    return app;
-}
+  return app;
+};
