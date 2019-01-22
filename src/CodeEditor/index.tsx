@@ -11,7 +11,7 @@ import { debounce } from 'ts-debounce';
 
 import { StoresFactory, IStoresModel } from './schema/stores';
 import { AppFactory } from './controller/index';
-import { debugInteract } from '../lib/debug';
+import { debugInteract, debugRender } from '../lib/debug';
 import { EditorWrap } from './styles';
 
 export interface ICodeEditorEvent {
@@ -109,6 +109,7 @@ export const CodeEditorAddStore = (stores: IStoresModel) =>
   observer(function CodeEditorWithStore(props: ICodeEditorProps) {
     const { editor } = stores;
     const { onChange, ...otherProps } = props;
+    debugRender(`[${stores.id}] rendering`);
     return (
       <CodeEditor
         visible={editor.visible}

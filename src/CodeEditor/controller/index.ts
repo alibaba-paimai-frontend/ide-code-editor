@@ -12,9 +12,9 @@ export const AppFactory = function(stores: IStoresModel) {
   // 挂载 stores 到上下文中
   app.use((ctx: any, next) => {
     ctx.stores = stores;
-    debugIO(`[controller] request: ${JSON.stringify(ctx.request.toJSON())}`);
+    debugIO(`[${stores.id}] request: ${JSON.stringify(ctx.request.toJSON())}`);
     next();
-    debugIO(`[controller] [${ctx.request.method}] ${ctx.request.url} ==> response: ${JSON.stringify(ctx.response.toJSON())}`);
+    debugIO(`[${stores.id}] [${ctx.request.method}] ${ctx.request.url} ==> response: ${JSON.stringify(ctx.response.toJSON())}`);
   });
 
   // 注册路由

@@ -1,6 +1,6 @@
 import { types, Instance } from 'mobx-state-tree';
 import { debugModel } from '../../lib/debug';
-import { pick } from '../../lib/util';
+import { pick, isNumeric } from '../../lib/util';
 import { updateEditor } from './util';
 
 export enum ECodeLanguage {
@@ -45,17 +45,17 @@ export const CodeEditorModel = types
   })
   .actions(self => {
     return {
-      setVisible(v: boolean | string){
-        self.visible = v === true || v === 'true'
+      setVisible(v: boolean | string) {
+        self.visible = v === true || v === 'true';
       },
       setWait(w: number) {
-        self.wait = w;
+        self.wait = +w;
       },
       setWidth(w: number | string) {
-        self.width = w;
+        self.width = isNumeric(w) ? +w : w; // 用户有可能传入的是 '123' 字符，需要转换成数字
       },
       setHeight(h: number | string) {
-        self.height = h;
+        self.height = isNumeric(h) ? +h : h;
       },
       setLanguage(l: ECodeLanguage) {
         self.language = l;

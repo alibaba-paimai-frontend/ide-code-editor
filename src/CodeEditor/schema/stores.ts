@@ -2,7 +2,7 @@ import { types, Instance } from 'mobx-state-tree';
 import { CodeEditorModel, ICodeEditorModel } from './index';
 import { createEmptyModel } from './util';
 
-export const STORE_ID_PREIX = 'scm_';
+export const STORE_ID_PREIX = 'sce_';
 
 export const Stores = types
   .model('StoresModel', {
