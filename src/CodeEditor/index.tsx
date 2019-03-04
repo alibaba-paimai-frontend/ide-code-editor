@@ -1,11 +1,9 @@
-import React, { Component, useCallback } from 'react';
+import React, { useCallback } from 'react';
 import { observer } from 'mobx-react-lite';
-import { Button } from 'antd';
 import { pick } from 'ide-lib-utils';
-import { based, Omit, OptionalProps, IBaseTheme, IBaseComponentProps, IStoresEnv, useIndectedEvents, extracSubEnv } from 'ide-lib-base-component';
+import { based, Omit, IBaseTheme, IBaseComponentProps, IStoresEnv, useIndectedEvents } from 'ide-lib-base-component';
 import MonacoEditor, {
   EditorDidMount,
-  MonacoEditorProps,
   ChangeHandler
 } from 'react-monaco-editor';
 import * as monacoEditor from 'monaco-editor/esm/vs/editor/editor.api';

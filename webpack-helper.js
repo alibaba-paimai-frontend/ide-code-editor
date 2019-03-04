@@ -59,12 +59,6 @@ const ALL_EXTERNALS = Object.assign({}, COMMON_EXTERNALS, {
     commonjs2: 'ss-tree',
     amd: 'ss-tree',
     root: 'ssTree'
-  },
-  'ide-code-editor': {
-    commonjs: 'ide-code-editor',
-    commonjs2: 'ide-code-editor',
-    amd: 'ide-code-editor',
-    root: 'ideCodeEditor'
   }
 });
 
