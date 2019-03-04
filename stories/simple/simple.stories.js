@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { wInfo } from '../../.storybook/utils';
 
-import { CodeEditor, createModel } from '../../src/';
+import { CodeEditor, createModel, CodeEditorAddStore } from '../../src/';
 
 import mdMobx from './simple-mobx.md';
 import mdPlain from './simple-plain.md';
@@ -27,12 +27,15 @@ const clickBtn = target => () => {
 
 storiesOf('基础使用', module)
   .addParameters(wInfo(mdMobx))
-  .addWithJSX('使用 mobx 对象', () => (
-    <div>
+  .addWithJSX('使用 mobx 对象', () => {
+    const CodeEditorWithStore = CodeEditorAddStore({stores: { model: editorModel}})
+    return <div>
       <button onClick={clickBtn(editorModel)}>调整宽度（会响应）</button>
-      <CodeEditor width={editorModel.width} onChange={onChange} />
+      <CodeEditorWithStore onChange={onChange} />
     </div>
-  ))
+  }
+    
+  )
   .addParameters(wInfo(mdPlain))
   .addWithJSX('普通 menu 对象', () => (
     <div>

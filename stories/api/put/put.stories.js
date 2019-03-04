@@ -125,7 +125,7 @@ storiesOf('API - put', module)
                 <Option value="visible">visible</Option>
                 <Option value="width">width</Option>
                 <Option value="height">height</Option>
-                <Option value="theme">theme</Option>
+                <Option value="editorTheme">editorTheme</Option>
                 <Option value="language">language</Option>
                 <Option value="value">value</Option>
                 <Option value="wait">wait</Option>

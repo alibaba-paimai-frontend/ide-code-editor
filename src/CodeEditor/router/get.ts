@@ -3,14 +3,14 @@ import { IContext } from './helper';
 
 export const router = new Router();
 
-// 默认获取所有的节点，可以通过 filter 返回指定的属性值
+// 可以通过 filter 返回指定的属性值
 // 比如 /nodes?filter=name,screenId ，返回的集合只有这两个属性
-(router as any).get('editor', '/editor', function (ctx: IContext) {
+router.get('editor', '/editor', function (ctx: IContext) {
   const { stores, request } = ctx;
   const { query } = request;
   const filterArray = query && query.filter && query.filter.trim().split(',');
   ctx.response.body = {
-    config: stores.editor.allConfigWithFilter(filterArray)
+    config: stores.model.allAttibuteWithFilter(filterArray)
   };
   ctx.response.status = 200;
 });
