@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.1.7"></a>
+## [0.1.7](https://github.com/alibaba-paimai-frontend/ide-code-editor/compare/v0.1.5...v0.1.7) (2019-03-08)
+
+
+### Bug Fixes
+
+* **打包配置:** 调整代码，修复无法出现 src/CodeEditor/index.d.ts 的问题； ([af7a5c6](https://github.com/alibaba-paimai-frontend/ide-code-editor/commit/af7a5c6))
+
+
+### Features
+
+* **功能增强:** 支持对数字型字符（比如'200' string）的高宽设置；更改 stores.id；新增 debug 埋点； ([7fee817](https://github.com/alibaba-paimai-frontend/ide-code-editor/commit/7fee817))
+* **功能完善:** 导出 onChange 方法；新增 debugIO 信息；完善 demo ([c2bae21](https://github.com/alibaba-paimai-frontend/ide-code-editor/commit/c2bae21))
+* **功能完善：代码风格:** 升级使用最新的模板代码风格 ([1829510](https://github.com/alibaba-paimai-frontend/ide-code-editor/commit/1829510))
+
+
+
 <a name="0.1.5"></a>
 ## [0.1.5](https://github.com/alibaba-paimai-frontend/ide-code-editor/compare/v0.1.3...v0.1.5) (2019-01-14)
 
