@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
 import { observer } from 'mobx-react-lite';
 import { pick } from 'ide-lib-utils';
-import { based, Omit, IBaseTheme, IBaseComponentProps, IStoresEnv, useIndectedEvents } from 'ide-lib-base-component';
+import { based, Omit, IBaseTheme, IBaseComponentProps, IStoresEnv, useInjectedEvents } from 'ide-lib-base-component';
 import MonacoEditor, {
   EditorDidMount,
   ChangeHandler
@@ -186,7 +186,7 @@ export const CodeEditorAddStore = (storesEnv: IStoresEnv<IStoresModel>) => {
     debugRender(`[${stores.id}] rendering`);
 
 
-    const otherPropsWithInjected = useIndectedEvents<ICodeEditorProps, IStoresModel>(storesEnv, otherProps, {
+    const otherPropsWithInjected = useInjectedEvents<ICodeEditorProps, IStoresModel>(storesEnv, otherProps, {
       'onChange': [updateEditorValue]
   });
 
