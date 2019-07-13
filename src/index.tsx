@@ -4,3 +4,5 @@ export * from './CodeEditor/schema/util';
 export * from './CodeEditor/schema/stores';
 
 export * from './CodeEditor/controller/';
+
+export * from './lib/util'
