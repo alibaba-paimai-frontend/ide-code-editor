@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.1.9](https://github.com/one-gourd/ide-code-editor/compare/v0.1.8...v0.1.9) (2019-07-13)
+
+
+### Bug Fixes
+
+* 🐛 依赖版本号 ([34e395e](https://github.com/one-gourd/ide-code-editor/commit/34e395e))
+* 🐛 解决 Unexpected usage 问题 ([0804cda](https://github.com/one-gourd/ide-code-editor/commit/0804cda))
+
+
+
 <a name="0.1.8"></a>
 ## [0.1.8](https://github.com/one-gourd/ide-code-editor/compare/v0.1.7...v0.1.8) (2019-03-21)
 
