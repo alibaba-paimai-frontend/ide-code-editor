@@ -1,12 +1,3 @@
-
-export function isNumeric(num: any) {
-    return !isNaN(num)
-}
-
-export function convertIfNumberic(num: any) {
-    return isNumeric(num) ? +num : num;
-}
-
 /**
  * 解决 monaco editor 被其他域引用导致无法被加载而出现 `Unexpected usage` 报错的问题
  * refer:

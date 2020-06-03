@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 import { observer } from 'mobx-react-lite';
-import { pick } from 'ide-lib-utils';
+import { pick, convertIfNumberic } from 'ide-lib-utils';
 import { based, Omit, IBaseTheme, IBaseComponentProps, IStoresEnv, useInjectedEvents } from 'ide-lib-base-component';
 import MonacoEditor, {
   EditorDidMount,
@@ -11,7 +11,6 @@ import { debounce } from 'ts-debounce';
 
 
 import { debugInteract, debugRender } from '../lib/debug';
-import { convertIfNumberic } from '../lib/util';
 import { StyledContainer } from './styles';
 import { AppFactory } from './controller/index';
 import { StoresFactory, IStoresModel } from './schema/stores';
